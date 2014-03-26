@@ -1,0 +1,61 @@
+
+
+<div id="contentBk" class="clearfix">
+
+  <div id="content">
+    <div class="topImg clearfix">
+      <img src="/assets/headers/header_2.jpg" alt="About Us">
+      <p>Our <strong>Course</strong></p>
+    </div>
+
+    <div class="wrapper">
+
+      <div class="course column c-67 clearfix">
+        <h3 class="title">Collage <strong>List</strong></h3>
+            <% @colleges.each do |college| %>
+            <div class="box">
+                            <ul class="courseId">
+                                <li><%=  college.name %></li>
+                                <li>Collage Type: <%=  college.collage_type %></li>
+                            </ul>
+                            <div class="boxInfo">
+                                <p><%= truncate college.information, length: 150 %></p>
+                            </div>
+                            <div class="courseInfo">
+                                <p class="courseTime">Year of Establishment: <%= college.year %></p>
+                                <ul>
+                                    <li class="courseRoom">Website: <%= link_to  college.college_website, 'http://' + college.college_website,:target => '_blank' %></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+        <% end %>
+          
+            
+      </div>
+
+      <div id="sidebar" class="column c-33 clearfix">
+
+        <div class="clearfix">
+          <div class="box">
+            <h4>Search: <strong>Collage</strong></h4>
+            <div class="boxInfo">
+              <%= form_tag colleges_path, :method => 'get' do %>  
+
+        <%= text_field_tag :search, params[:search] %>  
+        <%= submit_tag "Go", :name => nil,:id =>'mailSubmit' %>  
+      <% end %> 
+            </div>
+          </div>
+        </div>
+
+
+      </div> 
+
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+

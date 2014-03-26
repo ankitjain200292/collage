@@ -1,0 +1,64 @@
+
+
+<div id="contentBk" class="clearfix">
+
+  <div id="content">
+    <div class="topImg clearfix">
+      <img src="/assets/headers/header_2.jpg" alt="About Us">
+      <p>Our <strong>Course</strong></p>
+    </div>
+
+    <div class="wrapper">
+
+      <div class="course column c-67 clearfix">
+        <table class="box">
+          <tr class="tableHeader">
+            <th>Collage Name</th>
+            <th>Year</th>
+            <th>College website</th>
+            <th>College email</th>
+            <th>Show</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          <% @colleges.each do |college| %>
+            <tr>
+              <td><%= link_to college.name, admin_college_path(college) %></td>
+              <td><%= college.year %></td>
+              <td><%= college.college_website %></td>
+              <td><%= college.college_email %></td>
+              <td><%= link_to 'Show', admin_college_path(college) %></td>
+              <td><%= link_to 'Edit', edit_admin_college_path(college) %></td>
+              <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+
+        </table>
+        <%= will_paginate @colleges,:id =>'photopagination' %>
+      </div>
+
+      <div id="sidebar" class="column c-33 clearfix">
+
+        <div class="clearfix">
+          <div class="box">
+            <h4>Search: <strong>Collage</strong></h4>
+            <div class="boxInfo">
+              <%= form_tag admin_colleges_path, :method => 'get' do %>  
+
+        <%= text_field_tag :search, params[:search] %>  
+        <%= submit_tag "Go", :name => nil,:id =>'mailSubmit' %>  
+      <% end %> 
+            </div>
+          </div>
+        </div>
+
+
+      </div> 
+
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+

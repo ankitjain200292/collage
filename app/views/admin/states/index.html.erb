@@ -1,0 +1,59 @@
+<div id="contentBk" class="clearfix">
+
+  <div id="content">
+    <div class="topImg clearfix">
+      <img src="/assets/headers/header_2.jpg" alt="About Us">
+      <p>State<strong> List</strong></p>
+    </div>
+
+    <div class="wrapper">
+
+      <div class="course column c-67 clearfix">
+        <table class="box">
+          <tr class="tableHeader">
+      <th>State Name</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @states.each do |state| %>
+      <tr>
+        <td><%= state.name %></td>
+        <td><%= link_to 'Show',admin_state_path(state) %></td>
+        <td><%= link_to 'Edit', edit_admin_state_path(state) %></td>
+        <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+        <%= will_paginate @states,:id =>'photopagination' %>
+      </div>
+
+      <div id="sidebar" class="column c-33 clearfix">
+
+        <div class="clearfix">
+          <div class="box">
+            <h4>Search: <strong>State</strong></h4>
+            <div class="boxInfo">
+              <%= form_tag admin_states_path, :method => 'get' do %>  
+
+        <%= text_field_tag :search, params[:search] %>  
+        <%= submit_tag "Go", :name => nil,:id =>'mailSubmit' %>  
+      <% end %> 
+            </div>
+          </div>
+        </div>
+
+
+      </div> 
+
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+

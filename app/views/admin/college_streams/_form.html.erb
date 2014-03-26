@@ -1,0 +1,100 @@
+
+
+<script>
+  i = 1;
+
+  function add_category()
+  {
+    var theDiv = document.getElementById("products");
+    //var content = document.createTextNode(document.getElementById("product_details"));
+    var divtest = document.createElement("div");
+    divtest.setAttribute("id", "product_details_" + i);
+    theDiv.appendChild(divtest)
+    //document.getElementById("products").innerHTML += divtest
+    //divtest.innerHTML = document.getElementById("product_details").innerHTML;
+    $("#product_details").clone().find('select').each(function() {
+
+      $(this).attr('id', this.id + i);
+      if ($(this).attr('name') != 'category_id[]') {
+        $(this).attr('name', this.id.substring(this.id.indexOf('[')) + '[]');
+        $(this).empty();
+      }
+    }).appendTo("div#product_details_" + i);
+
+    i++;
+  }
+
+  $(document).ready(function() {
+    $('#cource_id_').empty();
+    $('#products').on("change", 'select', function() {
+
+      var n = this.id.lastIndexOf('_')
+      var id = this.id.substring(n + 1)
+      if (this.id == 'category_id_' + id)
+      {
+        product = $(this).val();
+        if (product != '')
+        {
+          var category = $(this).val();
+          $.ajax({
+            type: "post",
+            url: "/admin/add-cources",
+            data: {product_id: product},
+            success: function(data) {
+              var $el = $("#cource_id_" + id);
+              $el.empty(); // remove old options
+              $.each(data, function(key, value) {
+                $el.append($("<option></option>")
+                        .attr("value", key).text(value));
+              });
+            }
+          });
+        }
+        else {
+          var $el = $("#cource_id_" + id);
+          $el.empty();
+        }
+      }
+    });
+  });
+</script>
+
+<div class="column c-67 clearfix">
+  <div class="box contactUs ">
+    <h4><span>Collage Streams</span></h4>
+    <div class="boxInfo contactForm">
+      <% flash.each do |k, v| %>
+        <div id="<%= k %>"><%= v %></div>
+      <% end %>
+      <%= form_tag [:admin,@college_stream] do |f| %>
+        <% if @college_stream.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@college_stream.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+            <ul>
+              <% @college_stream.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div id="products">
+          <div class="wrap-header">
+            <div class="left-header"></div>
+            <div class="center-header"></div>
+            <div class="right-header"></div>
+          </div>
+          <div id="product_details">
+            <%=  select_tag "category_id[]",options_from_collection_for_select(Category.all, "id", "name"),:class => 'select-style',:prompt => "Please select a category"%>
+            <%=  select_tag "cource_id[]",options_from_collection_for_select(Category.all, "id", "name"), {:multiple => true, :class => "chzn-select", :style => "width:450px;" } %>
+
+          </div>
+        </div>
+        <%= hidden_field_tag :college_id,  params[:episode]%>
+        <%=  button_to_function "Add More", "add_category()" ,:class => 'submit' %>
+        <%= submit_tag "Submit",:class => 'submit' %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

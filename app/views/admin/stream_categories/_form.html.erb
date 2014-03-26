@@ -1,0 +1,33 @@
+<div class="column c-67 clearfix">
+  <div class="box contactUs ">
+    <h4><span>New Course</span></h4>
+    <div class="boxInfo contactForm">
+<%= form_for [:admin,@stream_category] do |f| %>
+  <% if @stream_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stream_category.errors.count, "error") %> prohibited this stream_category from being saved:</h2>
+
+      <ul>
+      <% @stream_category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+      <div class="field">
+    <%= f.label :category_id %>
+    <%= collection_select(:stream_category, :id, Category.all, :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create",:class => 'submit' %>
+  </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

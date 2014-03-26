@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @college.name %>
+</p>
+
+<p>
+  <strong>Information:</strong>
+  <%= @college.information %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @college.year %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @college.address1 %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @college.address2 %>
+</p>
+
+<p>
+  <strong>Pincode:</strong>
+  <%= @college.pincode %>
+</p>
+
+<p>
+  <strong>Landline:</strong>
+  <%= @college.landline %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @college.mobile %>
+</p>
+
+<p>
+  <strong>Collage type:</strong>
+  <%= @college.collage_type %>
+</p>
+
+<p>
+  <strong>Tution fee:</strong>
+  <%= @college.tution_fee %>
+</p>
+
+<p>
+  <strong>College website:</strong>
+  <%= @college.college_website %>
+</p>
+
+<p>
+  <strong>College email:</strong>
+  <%= @college.college_email %>
+</p>
+
+<p>
+  <strong>Facebook link:</strong>
+  <%= @college.facebook_link %>
+</p>
+
+<p>
+  <strong>Twitter link:</strong>
+  <%= @college.twitter_link %>
+</p>
+
+<p>
+  <strong>Linkedin link:</strong>
+  <%= @college.linkedin_link %>
+</p>
+
+<%= link_to 'Edit', edit_admin_college_path(@college) %> |
+<%= link_to 'Back', admin_colleges_path %>

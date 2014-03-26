@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/categories/new.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/states/new.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/colleges/new.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/stream_categories/new.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/assets/stylesheets/scaffolds.css.scss</file>
+            <file>file:/home/ankit/Downloads/collages/app/controllers/admin/cities_controller.rb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/states/index.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/controllers/admin/categories_controller.rb</file>
+            <file>file:/home/ankit/Downloads/collages/app/controllers/colleges_controller.rb</file>
+            <file>file:/home/ankit/Downloads/collages/app/helpers/colleges_helper.rb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/colleges/index.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/controllers/admin/states_controller.rb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/cities/_form.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/stream_categories/index.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/categories/index.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/controllers/admin/stream_categories_controller.rb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/college_streams/new.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/assets/stylesheets/main.css</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/colleges/_form.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/states/_form.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/categories/_form.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/stream_categories/_form.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/controllers/admin/colleges_controller.rb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/layouts/application.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/colleges/index.html.erb</file>
+            <file>file:/home/ankit/Downloads/collages/app/views/admin/cities/new.html.erb</file>
+        </group>
+    </open-files>
+</project-private>

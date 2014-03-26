@@ -1,0 +1,29 @@
+<h1>Listing college_streams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>College</th>
+      <th>Category</th>
+      <th>Stream category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @college_streams.each do |college_stream| %>
+      <tr>
+        <td><%= college_stream.college_id %></td>
+        <td><%= college_stream.category_id %></td>
+        <td><%= college_stream.stream_category_id %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

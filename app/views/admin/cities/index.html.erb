@@ -1,0 +1,58 @@
+<div id="contentBk" class="clearfix">
+
+  <div id="content">
+    <div class="topImg clearfix">
+      <img src="/assets/headers/header_2.jpg" alt="About Us">
+      <p>Cities<strong> List</strong></p>
+    </div>
+
+    <div class="wrapper">
+
+      <div class="course column c-67 clearfix">
+        <table class="box">
+          <tr class="tableHeader">
+      <th>City Name</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+        <td><%= city.name %></td>
+        <td><%= link_to 'Show', admin_city_path(city) %></td>
+        <td><%= link_to 'Edit', edit_admin_city_path(city) %></td>
+        <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+        <%= will_paginate @vities,:id =>'photopagination' %>
+      </div>
+
+      <div id="sidebar" class="column c-33 clearfix">
+
+        <div class="clearfix">
+          <div class="box">
+            <h4>Search: <strong>Cities</strong></h4>
+            <div class="boxInfo">
+              <%= form_tag admin_cities_path, :method => 'get' do %>  
+
+        <%= text_field_tag :search, params[:search] %>  
+        <%= submit_tag "Go", :name => nil,:id =>'mailSubmit' %>  
+      <% end %> 
+            </div>
+          </div>
+        </div>
+
+
+      </div> 
+
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->

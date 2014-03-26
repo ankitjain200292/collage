@@ -1,0 +1,134 @@
+<script>
+  
+  $(document).ready(function () {
+    var $el = $("#college_city_id");
+    $el.prop("disabled", true);
+  });
+  $(function() {
+  $(document).on('change', '#college_state_id', function() {
+     var state_id = $('#college_state_id').val();
+    if (state_id != '') {
+      $.ajax({
+        type: "post",
+        url: "/admin/get-cities",
+        data: {state_id: state_id},
+        success: function(data) {
+          var $el = $("#college_city_id");
+          $el.empty(); // remove old options
+          $.each(data, function(key, value) {
+            $el.append($("<option></option>")
+                    .attr("value", key).text(value));
+          });
+          $("#college_city_id").prop("disabled", false);
+        }
+      });
+    }
+    else {
+      var $el = $("#college_city_id");
+      $el.empty();
+      $el.append($("<option></option>")
+              .attr("value", '').text('Cities'));
+      $el.prop("disabled", true);
+    }
+  });
+});
+
+
+
+
+</script>
+
+<div class="column c-67 clearfix">
+                        <div class="box contactUs ">
+                            <h4><span>New Collage</span></h4>
+                                <div class="boxInfo contactForm">
+  <%= form_for [:admin,@college] do |f| %>
+    <% if @college.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@college.errors.count, "error") %> prohibited this college from being saved:</h2>
+
+        <ul>
+          <% @college.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :information %>
+      <%= f.text_area :information %>
+    </div>
+    <div class="field">
+      <%= f.label :year %>
+      <%= f.text_field :year,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :address1 %>
+      <%= f.text_field :address1,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :address2 %>
+      <%= f.text_field :address2,:id => 'contactName' %>
+    </div>
+    <div class="field" id="test">
+      <%= f.label :state_id %>
+      <%=  f.select "state_id",options_from_collection_for_select(State.all, "id", "name"),:class => 'select-style',:prompt => "State",:onchange => "get_cities(this.value)"%>
+    </div>
+    <div class="field">
+      <%= f.label :city_id %>
+      <%=  f.select "city_id",options_from_collection_for_select(City.all, "id", "name"),:class => 'select-style',:prompt => "City",:disabled => true%>
+    </div>
+    <div class="field">
+      <%= f.label :pincode %>
+      <%= f.text_field :pincode,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :landline %>
+      <%= f.text_field :landline,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :mobile %>
+      <%= f.text_field :mobile,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :collage_type %>
+      <%= f.number_field :collage_type,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :tution_fee %>
+      <%= f.text_field :tution_fee,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :college_website %>
+      <%= f.text_field :college_website,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :college_email %>
+      <%= f.text_field :college_email,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :facebook_link %>
+      <%= f.text_field :facebook_link,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :twitter_link %>
+      <%= f.text_field :twitter_link,:id => 'contactName' %>
+    </div>
+    <div class="field">
+      <%= f.label :linkedin_link %>
+      <%= f.text_field :linkedin_link,:id => 'contactName' %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Create",:class => 'submit' %>
+    </div>
+  <% end %>
+</div>
+                        </div>
+</div>
+
+

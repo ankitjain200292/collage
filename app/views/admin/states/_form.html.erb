@@ -1,0 +1,28 @@
+<div class="column c-67 clearfix">
+  <div class="box contactUs ">
+    <h4><span>New State</span></h4>
+    <div class="boxInfo contactForm">
+      <%= form_for [:admin,@state] do |f| %>
+        <% if @state.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@state.errors.count, "error") %> prohibited this state from being saved:</h2>
+
+            <ul>
+              <% @state.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Create",:class => 'submit' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
